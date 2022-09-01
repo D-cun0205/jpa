@@ -29,11 +29,17 @@ public class MemberService {
         }
     }
 
-    public Member findOne(Member member) {
-        return memberRepository.findOne(member.getId());
+    public Member findOne(Long memberId) {
+        return memberRepository.findOne(memberId);
     }
 
     public List<Member> findAll() {
         return memberRepository.findAll();
+    }
+
+    @Transactional
+    public void update(Long id, String name) {
+        Member findMember = memberRepository.findOne(id);
+        findMember.setName(name);
     }
 }

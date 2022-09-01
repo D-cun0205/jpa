@@ -12,9 +12,10 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
+        default_batch_fetch_size: 100
     database: h2
 
 logging:
   level:
     org.hibernate.sql: debug
-    org.hibernate.type: trace
+#    org.hibernate.type: trace
